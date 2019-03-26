@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.Scanner;
 
-public class Rules extends Application{
+public class Rules extends Application{//Create rules class to read file and print rules.txt file
+    //get txt file relative path
     String dirName = "src/rules.txt";
     private BorderPane bp = new BorderPane();
     String fileContents;
@@ -29,10 +30,12 @@ public class Rules extends Application{
         });
 
         try {
+            //Call getRules method
             getRules();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //Set string to textArea  and display in scene
         name.setText(fileContents);
         bp.setTop(name);
         bp.setBottom(back);
@@ -43,6 +46,8 @@ public class Rules extends Application{
     }
 
     public void getRules() throws IOException {
+        //BufferReader reads each line, adds to string
+        //Then appends to global String fileContents
         BufferedReader br = new BufferedReader(new FileReader(dirName));
         try {
             StringBuilder stringBuilder = new StringBuilder();
