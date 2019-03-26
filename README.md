@@ -17,4 +17,4 @@ the files must downloaded then opened on intellij. From there build the project 
 first followed by the client(note to run multiple clients tou must have allowed parallel run under configurations).
 once the client is run you will be prompted to login proceed by creating a new user name, once tht is completed on both clients you may begin the game.
 
-the server ports are hard coded to work over localhost for your testing purposes. the port selection scene was omitted intentionally and as mentioned above we were unable to get out gradle file to work consistently.
+the server ports are hard coded to work over localhost for your testing purposes. the port selection scene was omitted intentionally and as mentioned above we were unable to get out gradle file to work consistently. the final bug is with the highscore button as it does not lead to the correct destination consistently. 
