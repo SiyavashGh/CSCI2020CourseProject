@@ -45,7 +45,7 @@ public class Create {
         createUser.setOnAction(event -> {
             boolean usnm = false;
             System.out.println(usernameList.size());
-
+            //Checks username and password textfields
             for (int i = 0; i < usernameList.size(); i++) {
                 if (userName.getText().equals(usernameList.get(i))) {
                     userName.setText("Username exists already");
@@ -62,7 +62,7 @@ public class Create {
                 }
             }
         });
-
+        
         back.setOnAction(event -> {
             login.start(stage);
         });
