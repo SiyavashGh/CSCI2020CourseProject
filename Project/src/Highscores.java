@@ -13,14 +13,16 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+//Creates Highscores class
 public class Highscores extends Application{
+    //Initialize Observable list
     private final ObservableList<Person> data =
             FXCollections.observableArrayList();
+    //Create tableView
     TableView tableView = new TableView();
     public void start(Stage stage) throws IOException {
         BorderPane bp = new BorderPane();
-
+    //load data for table
         load();
 
         TableColumn userNameCol = new TableColumn("username");
@@ -55,18 +57,18 @@ public class Highscores extends Application{
     }
 
     public static class Person { // person class for the table
-
+        //Checks for changes to String when called
         private final SimpleStringProperty userName;
         private final SimpleStringProperty gamesPlayed;
         private final SimpleStringProperty wins;
 
-        private Person(String un, String gp, String w) {
+        private Person(String un, String gp, String w) {//Person class to set username, gamesplayed, wins
             this.userName = new SimpleStringProperty(un);
             this.gamesPlayed = new SimpleStringProperty(gp);
             this.wins = new SimpleStringProperty(w);
         }
 
-
+        //get/set methods for username,gamesplayed,wins
         public String getUserName() {
             return userName.get();
         }
