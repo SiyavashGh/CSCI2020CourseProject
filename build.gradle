@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'distribution'
+
+
+
+
+mainClassName = 'Login'
+
+repositories {
+	mavenCentral()
+}
+dependencies {
+	// https://mvnrepository.com/artifact/commons-validator/commons-validator
+	compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
+}
+
+
+jar {
+	manifest {
+		attributes 'Main-Class': mainClassName
+
+	}
+	from('src') {
+
+		include '**/scenes/css/*.css'
+		include '**/scenes/*.csv'
+	}
+	baseName mainClassName
+}
+
+/*distZip {
+	into(project.name + '-' + project.version) {
+		from 'src/main/java'
+		include 'files/images/poker-table-background.png'
+	}
+}*/
+
+/*task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask){
+	configuration 'proguard.cfg'
+	injars 'build/libs/csci2020u_final-1.0.jar'
+	outjars 'build/libs/csci2020u_final-1.0.min.jar'
+}*/
