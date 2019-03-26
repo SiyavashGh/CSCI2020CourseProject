@@ -21,6 +21,7 @@ import java.net.UnknownHostException;
 
 public class Menu extends JFrame{
     Scene menuScene;
+    //Create clientMain and borderpane for menu
     ClientMain clientMain = new ClientMain();
 
 
@@ -43,7 +44,7 @@ public class Menu extends JFrame{
 
         vBox.getChildren().addAll(joinGame, highScores, rules, exit);
         bp.setCenter(vBox);
-
+        //Button handlers for joinGame, rules, and exit
         joinGame.setOnAction(event -> {
             clientMain.main(new String[0]);
             stage.hide();
