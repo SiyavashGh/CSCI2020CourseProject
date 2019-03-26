@@ -23,7 +23,7 @@ public class Login extends Application {
     ObservableList<String> userNamesList = FXCollections.observableArrayList();
     ObservableList<String> passwordsList = FXCollections.observableArrayList();
     private String playerUserName;
-    //Scene menuScene = new Scene();
+
 
     @Override
     public void start(Stage stage){
@@ -75,12 +75,7 @@ public class Login extends Application {
             }else {
             System.out.println(passwordsList);
             int index = userNamesList.indexOf(userName.getValue());
-
-                System.out.println(userName.getValue());
-                System.out.println(passwordsList.get(index));
-                System.out.println(passWord.getText());
                 if (passWord.getText().equals(passwordsList.get(index))) {
-                    System.out.println("WORKS");
                     playerUserName = userNamesList.get(index);
                     menu.start(stage);
                 } else {
