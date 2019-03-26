@@ -43,21 +43,21 @@ dependencies {
   implementation 'org.apache.commons:commons-csv:1.6'
 }
 
-mainClassName =  'main.java.checkers.Login'
+mainClassName =  'Login'
 
 jar {
   manifest {
     attributes 'Main-Class': mainClassName
   }
   from('src'){
-  include '**/main/java/checkers/Files/stylesheet.css'
-  include '**/main/java/checkers/Files/config.properties'
+  include '**/stylesheet.css'
+  include '**/config.properties'
   }
 }
 
 task serverJar(type: Jar) {
    from('Project/src') {
-      include '**/main/java/checkers/Files/config.properties'
+      include '**/config.properties'
       exclude 'ServerMain'
    }
 }
