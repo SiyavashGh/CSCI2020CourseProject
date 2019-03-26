@@ -80,6 +80,7 @@ public class ClientApp extends JFrame {
 	}
 
 	private void setup(Controller c) {
+		//Checks mouse movements for dragged,pressed,released
 		MyMouseListener listener = new MyMouseListener();
 		listener.setController(c);
 
