@@ -30,20 +30,21 @@ public class Highscores extends Application{
         TableColumn winsCol = new TableColumn("Wins");
         winsCol.setMinWidth(100);
 
-        userNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>("username"));
-        gamesPlayedCol.setCellValueFactory(new PropertyValueFactory<Person, String>("gamesPlayed"));
-        winsCol.setCellValueFactory(new PropertyValueFactory<Person, String>("wins"));
+        userNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>("username"));//adds username
+        gamesPlayedCol.setCellValueFactory(new PropertyValueFactory<Person, String>("gamesPlayed"));//adds gamesplayed
+        winsCol.setCellValueFactory(new PropertyValueFactory<Person, String>("wins"));//add wins
 
         tableView.setItems(data);
         tableView.getColumns().addAll(userNameCol, gamesPlayedCol, winsCol);
         bp.setCenter(tableView);
         Scene scene = new Scene(bp, 400, 400);
+        scene.getStylesheets().add("stylesheet.css");
         stage.setScene(scene);
         stage.show();
     }
 
-    private void load() throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/users.csv"))) {
+    private void load() throws IOException {//loading the users file for high scores
+        try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
@@ -53,30 +54,40 @@ public class Highscores extends Application{
         }
     }
 
-    public static class Person {
+    public static class Person { // person class for the table
 
-        private final SimpleStringProperty username;
+        private final SimpleStringProperty userName;
         private final SimpleStringProperty gamesPlayed;
         private final SimpleStringProperty wins;
 
         private Person(String un, String gp, String w) {
-            this.username = new SimpleStringProperty(un);
+            this.userName = new SimpleStringProperty(un);
             this.gamesPlayed = new SimpleStringProperty(gp);
             this.wins = new SimpleStringProperty(w);
         }
 
 
         public String getUserName() {
-            return username.get();
+            return userName.get();
         }
+        public void setUsername(String un){
+            userName.set(un);
 
+        }
         public String getGamesPlayed() {
             return gamesPlayed.get();
+        }
+        public void setGamesPlayed(String gp){
+            gamesPlayed.set(gp);
         }
         public String getWins() {
             return wins.get();
         }
+        public void setWins(String w){
+            wins.set(w);
+        }
     }
+
 
 
 
