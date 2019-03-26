@@ -32,13 +32,9 @@ jar {
 
 /*distZip {
 	into(project.name + '-' + project.version) {
-		from 'src/main/java'
-		include 'files/images/poker-table-background.png'
+		from 'src'
+		
 	}
 }*/
 
-/*task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask){
-	configuration 'proguard.cfg'
-	injars 'build/libs/csci2020u_final-1.0.jar'
-	outjars 'build/libs/csci2020u_final-1.0.min.jar'
-}*/
+
